@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .custom-btn {
+    -webkit-appearance: none !important; 
+    /* background-color: #3b82f6 !important;  */
+    /* background-image: none !important; */
+
+    /* button {
+        background-color: initial !important;
+    } */
