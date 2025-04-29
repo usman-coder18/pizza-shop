@@ -2,6 +2,7 @@
 import { useCartStore } from "@/utils/store";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ThankYouPage = () => {
   const { products, totalitems, totalPrice } = useCartStore();
@@ -25,7 +26,12 @@ const ThankYouPage = () => {
           <>
             {products.map(item => (
               <div key={item.id} className="flex items-center justify-between mb-4">
-                <img src={item.img} alt={item.title} width={100} height={100} className="object-cover rounded-md" />
+                <Image 
+                src={item.img}
+                 alt={item.title}
+                  width={100}
+                   height={100}
+                    className="object-cover rounded-md" />
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold">{item.title} x{item.quantity}</h3>
                   <span className="text-sm text-gray-500">{item.optionTitle}</span>
