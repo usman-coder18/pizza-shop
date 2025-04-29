@@ -2,11 +2,12 @@ import { getAuthSession } from "@/utils/auth";
 import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
+// Correctly typed GET handler
 export const GET = async (
-  req: NextRequest, 
-  { params }: { params: { id: string } } // Corrected destructuring and typing
+  req: NextRequest,
+  { params }: { params: { id: string } }  // Destructure params and properly type
 ) => {
-  const { id } = params;
+  const { id } = params;  // Extract id from params
 
   try {
     const product = await prisma.product.findUnique({
@@ -35,11 +36,12 @@ export const GET = async (
   }
 };
 
+// Correctly typed DELETE handler
 export const DELETE = async (
-  req: NextRequest, 
-  { params }: { params: { id: string } }  // Corrected destructuring and typing
+  req: NextRequest,
+  { params }: { params: { id: string } }  // Destructure params and properly type
 ) => {
-  const { id } = params;
+  const { id } = params;  // Extract id from params
 
   const session = await getAuthSession();
 
