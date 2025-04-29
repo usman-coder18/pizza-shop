@@ -1,6 +1,5 @@
 import { prisma } from "@/utils/connect";
 import { NextResponse } from "next/server"
-// import { json } from "stream/consumers"
 
 export const GET = async ()=>{
     try {

@@ -6,7 +6,7 @@ export const GET = async (
   req: NextRequest,
   context: { params: { id: string } }
 ) => {
-  const { id } = context.params; // ✅ Access inside
+  const { id } = context.params; 
 
   try {
     const product = await prisma.product.findUnique({
@@ -39,7 +39,7 @@ export const DELETE = async (
   req: NextRequest,
   context: { params: { id: string } }
 ) => {
-  const { id } = context.params; // ✅ Access inside
+  const { id } = context.params; 
 
   const session = await getAuthSession();
 

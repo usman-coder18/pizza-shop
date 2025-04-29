@@ -16,19 +16,13 @@ const CheckoutPage = () => {
       return;
     }
 
-    // Proceed with checkout logic here
     toast.success("Checkout successful! Redirecting to confirmation...");
     setTimeout(() => {
       router.push("/thankyou");
     }, 2000);
   };
 
-//   useEffect(() => {
-//     // If cart is empty, redirect to home
-//     if (products.length === 0) {
-//       router.push('/');
-//     }
-//   }, [products, router]);
+
 
   return (
     <div className="h-[calc(100vh)] md:h-[calc(100vh)] flex flex-col items-center justify-center ">
