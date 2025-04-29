@@ -11,7 +11,6 @@ const CartIcon = () => {
         useCartStore.persist.rehydrate();
     }, []);
 
-    // 🛠️ Calculate total items dynamically
     const totalItems = products.reduce((acc, item) => acc + item.quantity, 0);
 
     return (

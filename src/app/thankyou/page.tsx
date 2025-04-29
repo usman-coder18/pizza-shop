@@ -7,15 +7,9 @@ const ThankYouPage = () => {
   const { products, totalitems, totalPrice } = useCartStore();
   const router = useRouter();
 
-//   useEffect(() => {
-    // Check if products are empty before redirecting
-    // if (products.length === 0) {
-    //   router.push('/');
-    // }
-//   }, [products, router]);
 
   if (products.length === 0) {
-    return <div>Loading...</div>;  // or a loading spinner, if you prefer
+    return <div>Loading...</div>;  
   }
 
   return (
