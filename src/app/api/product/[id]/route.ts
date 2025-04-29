@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
   req: NextRequest,
-  context: { params: { id: string } } 
+  { params }: { params: { id: string } } // Destructure params here
 ) => {
-  const { id } = context.params;
+  const { id } = params;
 
   try {
     const product = await prisma.product.findUnique({
@@ -37,9 +37,9 @@ export const GET = async (
 
 export const DELETE = async (
   req: NextRequest,
-  context: { params: { id: string } }  
+  { params }: { params: { id: string } }  // Destructure params here
 ) => {
-  const { id } = context.params;
+  const { id } = params;
 
   const session = await getAuthSession();
 
