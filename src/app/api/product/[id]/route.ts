@@ -2,18 +2,16 @@ import { getAuthSession } from "@/utils/auth";
 import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
-// Correctly typed GET handler
+// GET Handler with Correct Typing
 export const GET = async (
   req: NextRequest,
-  { params }: { params: { id: string } }  // Destructure params and properly type
+  { params }: { params: { id: string } }  // Correct typing in Next.js 15
 ) => {
-  const { id } = params;  // Extract id from params
+  const { id } = params;  // Destructure params correctly
 
   try {
     const product = await prisma.product.findUnique({
-      where: {
-        id,  
-      },
+      where: { id },
     });
 
     if (!product) {
@@ -36,12 +34,12 @@ export const GET = async (
   }
 };
 
-// Correctly typed DELETE handler
+// DELETE Handler with Correct Typing
 export const DELETE = async (
   req: NextRequest,
-  { params }: { params: { id: string } }  // Destructure params and properly type
+  { params }: { params: { id: string } }  // Correct typing for DELETE in Next.js 15
 ) => {
-  const { id } = params;  // Extract id from params
+  const { id } = params;  // Destructure params correctly
 
   const session = await getAuthSession();
 
@@ -54,9 +52,7 @@ export const DELETE = async (
 
   try {
     await prisma.product.delete({
-      where: {
-        id,  
-      },
+      where: { id },
     });
     return new NextResponse(
       JSON.stringify("Product deleted successfully"),

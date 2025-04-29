@@ -3,30 +3,32 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import { useEffect } from "react";
 
 const LoginPage = () => {
+  const { status } = useSession();
+  const router = useRouter();
 
-  const{status} = useSession()
-  const router = useRouter()
- 
-  if(status === "loading"){
+  // This useEffect hook ensures the navigation happens after the component has rendered
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/"); // Redirect after authentication
+    }
+  }, [status, router]); // Only run when `status` or `router` changes
+
+  if (status === "loading") {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>loading....</p>
       </div>
-    )
+    );
   }
-  if(status === "authenticated"){
-    router.push("/")
-  }
-
 
   return (
     <div className="p-4 h-[calc(100vh-1rem)] md:h-[calc(100vh-0.2rem)] flex items-center justify-center">
       <div className=" h-full shadow-2xl rounded-md flex flex-col md:flex-row md:h-[70%] md:w-full lg:w-[60%] 2xl:w-1/2">
         <div className="relative h-1/3 w-full md:h-full md:w-1/2">
-          <Image src="/loginBg.png" alt="" fill className="object-cover"/>
+          <Image src="/loginBg.png" alt="" fill className="object-cover" />
         </div>
         <div className="p-10 flex flex-col gap-8 md:w-1/2">
           <h1 className="font-bold text-xl xl:text-3xl">Welcome</h1>
@@ -52,7 +54,7 @@ const LoginPage = () => {
             <span>Sign in with Facebook</span>
           </button>
           <p className="text-sm">
-            Have a problem?<Link className="underline" href="/"> Contact us</Link>
+            Have a problem? <Link className="underline" href="/"> Contact us</Link>
           </p>
         </div>
       </div>

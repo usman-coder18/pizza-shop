@@ -2,16 +2,15 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com'], // Allows loading images from Cloudinary
   },
   typescript: {
-    // Optional: Disable ignoring build errors for production environments
-    ignoreBuildErrors: process.env.NODE_ENV === 'development',
+    ignoreBuildErrors: process.env.NODE_ENV === 'development', // Ignores TypeScript build errors in development
   },
   experimental: {
-    serverComponents: true, // If you're using server components
+    serverComponents: true, // Enables server components if needed
   },
-  target: 'server', // Use serverless functions (if using API routes)
+  target: 'server', // Set the build target for serverless functions (useful for API routes)
 };
 
 export default nextConfig;
