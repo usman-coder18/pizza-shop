@@ -3,8 +3,8 @@ import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
-  req: NextRequest,
-  { params }: { params: { id: string } } // Destructure params here
+  req: NextRequest, 
+  { params }: { params: { id: string } } // Corrected destructuring and typing
 ) => {
   const { id } = params;
 
@@ -36,8 +36,8 @@ export const GET = async (
 };
 
 export const DELETE = async (
-  req: NextRequest,
-  { params }: { params: { id: string } }  // Destructure params here
+  req: NextRequest, 
+  { params }: { params: { id: string } }  // Corrected destructuring and typing
 ) => {
   const { id } = params;
 
