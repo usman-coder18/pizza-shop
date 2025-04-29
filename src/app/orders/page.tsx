@@ -15,7 +15,7 @@ const OrdersPage = () => {
     router.push("/");
   }
 
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
       fetch("http://localhost:3000/api/orders").then((res) => res.json()),
