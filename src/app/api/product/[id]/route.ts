@@ -4,14 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
   req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: { id: string } } 
 ) => {
-  const { id } = context.params; 
+  const { id } = context.params;
 
   try {
     const product = await prisma.product.findUnique({
       where: {
-        id,
+        id,  
       },
     });
 
@@ -37,9 +37,9 @@ export const GET = async (
 
 export const DELETE = async (
   req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: { id: string } }  
 ) => {
-  const { id } = context.params; 
+  const { id } = context.params;
 
   const session = await getAuthSession();
 
@@ -53,7 +53,7 @@ export const DELETE = async (
   try {
     await prisma.product.delete({
       where: {
-        id,
+        id,  
       },
     });
     return new NextResponse(
