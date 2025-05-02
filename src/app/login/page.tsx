@@ -9,12 +9,11 @@ const LoginPage = () => {
   const { status } = useSession();
   const router = useRouter();
 
-  // This useEffect hook ensures the navigation happens after the component has rendered
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/"); // Redirect after authentication
+      router.push("/"); 
     }
-  }, [status, router]); // Only run when `status` or `router` changes
+  }, [status, router]); 
 
   if (status === "loading") {
     return (
